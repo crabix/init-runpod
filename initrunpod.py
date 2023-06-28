@@ -1,42 +1,58 @@
 import os
 import sys
 import gdown
+import logging
 
-# Global variables
-#DEFAULT_FOLDER_URL = 'https://drive.google.com/drive/folders/your_folder_id'
-DEFAULT_FOLDER_URL = 'https://drive.google.com/drive/folders/1yQndn6L5i84PiBE8czeuPeSMULci7i5Q'
+# GDrive Test
+#GDRIVE_MODEL_DIR = 'https://drive.google.com/drive/folders/1Bkq2VJJP1_yxue5QeinB4_3K_zHVURWW'
+#GDRIVE_LORA_DIR =  'https://drive.google.com/drive/folders/1F1CBmGONCFmWi0UV6CyNPMePRDhXiXRV'
 
-#DEFAULT_DESTINATION_PATH = 'path/to/save/files/'
-DEFAULT_DESTINATION_PATH = 'C:/Users/alexa/OneDrive/Dev/init-runpod'
-#DEFAULT_DESTINATION_PATH = '.'
+# GDrive AI
+GDRIVE_LORA_DIR = 'https://drive.google.com/drive/folders/1vCi8_0ieUnKeKMB5VZJSOguUHIiGEOzu'
+GDRIVE_MODEL_DIR = 'https://drive.google.com/drive/folders/1AcJXa7tSPRxGa4oXCREOmLvWjkMbvkGZ'
+
+#Local
+#LOCAL_MODEL_DIR = 'C:/Users/alexa/OneDrive/Dev/init-runpod/models'
+#LOCAL_LORA_DIR = 'C:/Users/alexa/OneDrive/Dev/init-runpod/Lora'
+
+#Runpod.io
+LOCAL_MODEL_DIR = '/workspace/stable-diffusion-webui/models'
+LOCAL_LORA_DIR = '/workspace/stable-diffusion-webui/models/Lora'
+
+# Logging configuration
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def main():
-    folder_url, destination_path = parse_command_line_args()
 
-    folder_id = extract_folder_id(folder_url)
-    download_folder_contents(folder_id, destination_path)
+    download_folder_contents(GDRIVE_MODEL_DIR, GDRIVE_LORA_DIR)
 
-def parse_command_line_args():
-    if len(sys.argv) >= 3:
-        folder_url = sys.argv[1]
-        destination_path = sys.argv[2]
-    else:
-        folder_url = DEFAULT_FOLDER_URL
-        destination_path = DEFAULT_DESTINATION_PATH
+def download_folder_contents(model_folder_url, lora_folder_url):
+    global LOCAL_MODEL_DIR, LOCAL_LORA_FOLDER
 
-    return folder_url, destination_path
+    # Create local folders if they don't exist
+    os.makedirs(LOCAL_MODEL_DIR, exist_ok=True)
+    os.makedirs(LOCAL_LORA_DIR, exist_ok=True)
 
-def extract_folder_id(folder_url):
-    parts = folder_url.split('/')
-    return parts[-1]
+    # Download content of "models" folder
+    download_folder(model_folder_url, LOCAL_MODEL_DIR)
 
-def download_folder_contents(folder_id, destination_path):
-    folder_url = f'https://drive.google.com/drive/folders/{folder_id}'
+    # Download content of "lora" folder
+    download_folder(lora_folder_url, LOCAL_LORA_DIR)
+
+    logger.info('Download complete.')
+
+def download_folder(folder_url, destination_path):
+    logger.info(f'Downloading folder: {folder_url}')
+    
     command = f'gdown --folder {folder_url} --output {destination_path}'
 
     os.system(command)
 
-    print('Download complete.')
+def download_file(file_id, destination_path):
+    file_url = f'https://drive.google.com/uc?id={file_id}'
+    output_path = os.path.join(destination_path, file_id)
+    gdown.download(file_url, output_path, quiet=False)
 
 if __name__ == '__main__':
     main()
