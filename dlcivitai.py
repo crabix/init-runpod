@@ -11,6 +11,8 @@ ODEL_DIR = 'https://drive.google.com/drive/folders/1AcJXa7tSPRxGa4oXCREOmLvWjkMb
 #LOCAL_MODEL_DIR = 'C:/Users/alexa/OneDrive/Dev/init-runpod/models'
 #LOCAL_LORA_DIR = 'C:/Users/alexa/OneDrive/Dev/init-runpod/Lora'
 
+
+
 #Runpod.io
 CSV_FILE = 'civitai.csv'
 LOCAL_MODEL_DIR = '/workspace/stable-diffusion-webui/models'
