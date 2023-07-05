@@ -1,15 +1,11 @@
-Lora,JK Tight Bikini Top,https://civitai.com/api/download/models/27652
-Lora,Ex micro bikini,https://civitai.com/api/download/models/58799
-Lora,sling_bikini_top,https://civitai.com/api/download/models/89090
-Lora, Sin Reveling Bikini,https://civitai.com/api/download/models/90274
-Model,MajicMix realistic,https://civitai.com/api/download/models/94640
-Model,epiCRealism,https://civitai.com/api/download/models/105035
-Model,Dreamshaper,https://civitai.com/api/download/models/94081
-Model,A-Zovya Photoreal,https://civitai.com/api/download/models/99805
-Lora,Add more details,https://civitai.com/api/download/models/87153
-Model,Perfect Deliberate,https://civitai.com/api/download/models/86698
-Model,RunDiffusion FX Photrealistic,https://civitai.com/api/download/models/88158
-Model,Uber Realistic Porn Merge,https://civitai.com/api/download/models/15640
 Lora,Tajna club High Heels,https://civitai.com/api/download/models/87407
 Model,ICBINP,https://civitai.com/api/download/models/106231
 Model,AbsoluteReality,https://civitai.com/api/download/models/86437
+Embedding,bad_pictures,https://civitai.com/api/download/models/66043
+Embedding,bad_hands,https://huggingface.co/yesyeahvh/bad-hands-5/resolve/main/bad-hands-5.pt
+Embedding,bad-picture-chill-75v,https://huggingface.co/gemasai/bad-picture-chill-75v/resolve/main/bad-picture-chill-75v.pt
+Embedding,bad_handsv5,https://huggingface.co/yesyeahvh/bad-hands-5/resolve/main/bad-hands-5.pt
+Embedding,bad_prompt_version2,https://huggingface.co/embed/bad_prompt/resolve/main/bad_prompt_version2.pt
+Embedding,ng_deepnegative_v1_75t,https://civitai.com/api/download/models/5637
+Embedding,badhandv4,https://civitai.com/api/download/models/20068
+Embedding,veryBadImageNegative,https://civitai.com/api/download/models/25820

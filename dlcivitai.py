@@ -15,8 +15,9 @@ ODEL_DIR = 'https://drive.google.com/drive/folders/1AcJXa7tSPRxGa4oXCREOmLvWjkMb
 
 #Runpod.io
 CSV_FILE = 'civitai.csv'
-LOCAL_MODEL_DIR = '/workspace/stable-diffusion-webui/models'
-LOCAL_LORA_DIR = '/workspace/stable-diffusion-webui/models/Lora'
+LOCAL_MODEL_DIR = '/workspace/stable-diffusion-webui/models' #models
+LOCAL_LORA_DIR = '/workspace/stable-diffusion-webui/models/Lora' #loras
+LOCAL_EMBEDDINGS_DIR = '/workspace/stable-diffusion-webui/embeddings' #embeddings
 
 logging.basicConfig(level=logging.ERROR)
 
@@ -53,6 +54,8 @@ def download_files_from_csv(file_path):
                 url = row[2]
                 if file_type == "Lora":
                     directory = LOCAL_LORA_DIR
+                if file_type == "Embedding":
+                    directory = LOCAL_EMBEDDINGS_DIR
                 else:
                     directory = LOCAL_MODEL_DIR
                 if not os.path.exists(directory):
